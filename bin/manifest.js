@@ -9,4 +9,7 @@ if (!version) {
   process.exit(1)
 }
 
-fs.copyFileSync(`./src/manifest-${version}.json`, './src/manifest.json')
+fs.copyFileSync(
+  `./src/drivers/webextension/manifest-${version}.json`,
+  './src/drivers/webextension/manifest.json'
+)

@@ -1,18 +1,17 @@
+[![Validate](https://github.com/wappalyzer/wappalyzer/actions/workflows/validate.yml/badge.svg)](https://github.com/wappalyzer/wappalyzer/actions/workflows/validate.yml)
+[![wappalyzer NPM](https://img.shields.io/badge/npm-wappalyzer-blue)](https://www.npmjs.com/package/wappalyzer)
+[![wappalyzer-core NPM](https://img.shields.io/badge/npm-wappalyzer--core-blue)](https://www.npmjs.com/package/wappalyzer-core)
+[![Github Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/sponsors/AliasIO)](https://github.com/sponsors/AliasIO)
 
-<h1 align="center">Wapalyzer</h1>
+<a href="https://www.wappalyzer.com/?utm_source=readme&utm_medium=github&utm_campaign=wappalyzer"><img src="https://www.wappalyzer.com/images/logo/icon_192.png" height="72" alt="Wappalyzer" align="left" /></a>
 
+# Wappalyzer
 
-<p align="center">
-<img src="https://i.ibb.co/DRQSqXp/wapalyzer.png" width="96" /><br />
-<b><i>Identify the technologies powering any website</i></b>
-<br />
-</p>
+<br>
 
----
+**[Wappalyzer](https://www.wappalyzer.com) identifies technologies on websites, such as CMS, web frameworks, ecommerce platforms, JavaScript libraries, analytics tools and [more](https://www.wappalyzer.com/technologies).**
 
-> This is a community fork of the now removed [wappalyzer](https://web.archive.org/web/20230821034415/https://20230821034415/github.com/wappalyzer/wappalyzer) project, initially developed by [@AliasIO](https://github.com/AliasIO).
-> <br />
-> The original author maintains a hosted instanced, availible at [wappalyzer.com](https://www.wappalyzer.com/).
+If you don't have time to configure, host, debug and maintain your own infrastructure to analyse websites at scale, we offer a SaaS solution that has all the same capabilities and a lot more. Our [apps](https://www.wappalyzer.com/apps/) and [APIs](https://www.wappalyzer.com/api/) not only reveal the technology stack a website uses but also company and contact details, social media profiles, keywords and metadata.
 
 ## Prerequisites
 
@@ -23,7 +22,7 @@
 ## Quick start
 
 ```sh
-git clone https://github.com/lissy93/wapalyzer.git
+git clone https://github.com/wappalyzer/wappalyzer.git
 cd wappalyzer
 yarn install
 yarn run link
@@ -52,9 +51,9 @@ node src/drivers/npm/cli.js https://example.com
 
 ## Specification
 
-A long list of [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) is used to identify technologies on web pages. wapalyzer inspects HTML code, as well as JavaScript variables, response headers and more.
+A long list of [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) is used to identify technologies on web pages. Wappalyzer inspects HTML code, as well as JavaScript variables, response headers and more.
 
-Patterns (regular expressions) are kept in [`src/technologies/`](https://github.com/lissy93/wapalyzer/blob/master/src/technologies). The following is an example of an application fingerprint.
+Patterns (regular expressions) are kept in [`src/technologies/`](https://github.com/wappalyzer/wappalyzer/blob/master/src/technologies). The following is an example of an application fingerprint.
 
 #### Example
 
@@ -91,7 +90,6 @@ Patterns (regular expressions) are kept in [`src/technologies/`](https://github.
   "headers": {
     "X-Powered-By": "Example"
   },
-  "html": "<link[^>]example\\.css",
   "text": "\bexample\b",
   "css": "\\.example-class",
   "robots": "Disallow: /unique-path/",
@@ -117,7 +115,7 @@ Patterns (regular expressions) are kept in [`src/technologies/`](https://github.
 
 ## JSON fields
 
-Find the JSON schema at [`schema.json`](https://github.com/lissy93/wapalyzer/blob/master/schema.json).
+Find the JSON schema at [`schema.json`](https://github.com/wappalyzer/wappalyzer/blob/master/schema.json).
 
 ### Required properties
 
@@ -343,17 +341,6 @@ Plus any of:
       <td><code>{ "X-Powered-By": "^WordPress$" }</code></td>
     </tr>
     <tr>
-      <td><code>html</code></td>
-      <td>String | Array</td>
-      <td>
-        HTML source code. Patterns must include an HTML opening tag to
-        avoid matching plain text. For performance reasons, avoid
-        <code>html</code> where possible and use
-        <code>dom</code> instead.
-      </td>
-      <td><code>"&lt;a [^&gt;]*href=\"index.html"</code></td>
-    </tr>
-    <tr>
       <td><code>text</code></td>
       <td>String | Array</td>
       <td>
@@ -422,6 +409,17 @@ Plus any of:
         <code>js</code> instead.
       </td>
       <td><code>"function webpackJsonpCallback\\(data\\) {"</code></td>
+    </tr>
+    <tr>
+      <td><code>html</code> (deprecated)</td>
+      <td>String | Array</td>
+      <td>
+        HTML source code. Patterns must include an HTML opening tag to
+        avoid matching plain text. <strong>For performance reasons, avoid
+        <code>html</code> where possible and use
+        <code>dom</code> instead.</strong>
+      </td>
+      <td><code>"&lt;a [^&gt;]*href=\"index.html"</code></td>
     </tr>
   </tbody>
 </table>
