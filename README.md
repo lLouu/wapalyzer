@@ -13,6 +13,10 @@
 
 If you don't have time to configure, host, debug and maintain your own infrastructure to analyse websites at scale, we offer a SaaS solution that has all the same capabilities and a lot more. Our [apps](https://www.wappalyzer.com/apps/) and [APIs](https://www.wappalyzer.com/api/) not only reveal the technology stack a website uses but also company and contact details, social media profiles, keywords and metadata.
 
+<br>
+
+> **Warning** : This is a fork of the now private repository of the open source version of wappalyzer. The files are recovered from @lLouu local backup of the work from @AliasIO at the now unavailable [old repository](https://github.com/wappalyzer/wappalyzer.git). This has been collected under the same license file given here. Don't hesitate to keep forking and backuping this work.
+
 ## Prerequisites
 
 -   [Git](https://git-scm.com)
